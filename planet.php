@@ -26,11 +26,15 @@
 	<section>
 		<?php if(!isset($_GET['name']) || $statement->rowCount() == 0): ?>
 			<h1>There are no results for that planet.</h1>
+			<button onClick="location.href='create_planet.php';">Add Planet</button>
 		<?php else: ?>
 			<?php while($row = $statement->fetch()): ?>
 				<h1><?= $row['name'] ?></h1>
-				<div class="planet_image">
-				</div>
+				<?php if(!empty($row['image'])): ?>
+					<div class="planet_image">
+						<img src="<?= $row['image'] ?>" />
+					</div>
+				<?php endif ?>
 				<table>
 					<tr>
 						<td>Diameter:</td>
