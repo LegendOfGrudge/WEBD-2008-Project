@@ -1,0 +1,70 @@
+<?php
+	require('connect.php');
+	
+	if(isset($_GET['name']))
+	{
+		$name = filter_input(INPUT_GET, 'name', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		
+		$query = "SELECT * FROM planets WHERE name = :name";
+		
+		$statement = $db->prepare($query);
+		
+		$statement->bindValue(':name', $name);
+		
+		$statement->execute();
+	}
+?>
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8" />
+	<title>Galaxy Far, Far Away Database</title>
+	<link rel="stylesheet" type="text/css" href="styles.css?d=<?php echo time(); ?>"/>
+</head>
+<body>
+<?php include("header.php") ?>	
+	<section>
+		<?php if(!isset($_GET['name']) || $statement->rowCount() == 0): ?>
+			<h1>There are no results for that planet.</h1>
+		<?php else: ?>
+			<?php while($row = $statement->fetch()): ?>
+				<h1><?= $row['name'] ?></h1>
+				<div class="planet_image">
+				</div>
+				<table>
+					<tr>
+						<td>Diameter:</td>
+						<td><?= $row['diameter'] ?> km</td>
+					</tr>
+					<tr>
+						<td>Climate:</td>
+						<td><?= $row['climate'] ?></td>
+					</tr>
+					<tr>
+						<td>Terrain:</td>
+						<td><?= $row['terrain'] ?></td>
+					</tr>
+					<tr>
+						<td>Surface Water:</td>
+						<td><?= $row['surface_water'] ?>%</td>
+					</tr>
+					<tr>
+						<td>Population:</td>
+						<td><?= $row['population'] ?> people</td>
+					</tr>
+				</table>
+				<br />
+				<?php if(isset($_SESSION['user'])): ?>
+				<form method="post" action="update_planet.php">
+					<input type="hidden" name="planet_id" value="<?= $row['planet_id'] ?>" />
+				
+					<input type="submit" name="update" value="Update" />
+					<input type="submit" name="delete" value="Delete" />
+				</form>
+				<?php endif ?>
+			<?php endwhile ?>
+		<?php endif ?>
+	</section>
+<?php include("footer.php") ?>
+</body>
+</html>
