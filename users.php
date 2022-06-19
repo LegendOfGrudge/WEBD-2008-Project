@@ -1,6 +1,12 @@
 <?php
 	require('connect.php');
 	
+	if($_SESSION['privilege'] != 1)
+	{
+		header("Location: index.php");
+		exit;
+	}
+	
 	$query = "SELECT * FROM users";
 	
 	$statement = $db->prepare($query);

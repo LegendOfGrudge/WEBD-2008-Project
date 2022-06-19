@@ -1,6 +1,12 @@
 <?php
 	require('connect.php');
 	
+	if(!isset($_SESSION['user']))
+	{
+		header("Location: index.php");
+		exit;
+	}
+	
 	if($_POST && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confirm']))
 	{
 		// Validating username

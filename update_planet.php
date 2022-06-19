@@ -1,6 +1,12 @@
 <?php 
 	require('connect.php');
 	
+	if(!isset($_SESSION['user']))
+	{
+		header("Location: index.php");
+		exit;
+	}
+	
 	if($_POST && isset($_POST['diameter']) && isset($_POST['climate']) && isset($_POST['terrain']) && isset($_POST['surface_water']) && isset($_POST['population']))
 	{
 		$planet_id = filter_input(INPUT_POST, 'planet_id', FILTER_SANITIZE_NUMBER_INT);
