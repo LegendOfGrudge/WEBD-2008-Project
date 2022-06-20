@@ -59,7 +59,7 @@
 					<form method="post" action="update_planet.php">
 						<tr>
 							<td><input type="hidden" name="planet_id" value="<?= $row['planet_id'] ?>" /></td>
-							<td><?= $row['name'] ?></td>
+							<td><a href="planet.php?name=<?= $row['name'] ?>"><?= $row['name'] ?></a></td>
 							<td><?= $row['climate'] ?></td>
 							<td><?= $row['population'] ?></td>
 							<td><input type="submit" name="update" value="Update" /></td>

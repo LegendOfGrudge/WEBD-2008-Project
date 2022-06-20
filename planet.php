@@ -38,7 +38,11 @@
 				<table>
 					<tr>
 						<td>Diameter:</td>
-						<td><?= $row['diameter'] ?> km</td>
+						<?php if($row['diameter'] > 0): ?>
+							<td><?= $row['diameter'] ?> km</td>
+						<?php else: ?>
+							<td>Unknown</td>
+						<?php endif ?>
 					</tr>
 					<tr>
 						<td>Climate:</td>
@@ -50,11 +54,19 @@
 					</tr>
 					<tr>
 						<td>Surface Water:</td>
-						<td><?= $row['surface_water'] ?>%</td>
+						<?php if($row['surface_water'] > 0): ?>
+							<td><?= $row['surface_water'] ?>%</td>
+						<?php else: ?>
+							<td>Unknown</td>
+						<?php endif ?>
 					</tr>
 					<tr>
 						<td>Population:</td>
-						<td><?= $row['population'] ?> people</td>
+						<?php if($row['population'] > 0): ?>
+							<td><?= $row['population'] ?> people</td>
+						<?php else: ?>
+							<td>Unknown</td>
+						<?php endif ?>
 					</tr>
 				</table>
 				<br />
