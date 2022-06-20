@@ -1,9 +1,17 @@
+<?php
+	$header_query = "SELECT * FROM movies";
+	
+	$header_statement = $db->prepare($header_query);
+	
+	$header_statement->execute();
+?>
 	<div id="login">
 	<?php if(isset($_SESSION['user']) && isset($_SESSION['privilege'])): ?>
 		<?php if($_SESSION['privilege'] == 0): ?>
 			<div class="dropdown">
 				<button class="dropbtn"><?= $_SESSION['user'] ?></button>
 				<div class="dropdown-content">
+					<a href="pages.php">Planets</a>
 					<a href="logout.php">Logout</a>
 				 </div>
 			</div> 
@@ -11,6 +19,7 @@
 			<div class="dropdown">
 				<button class="dropbtn"><?= $_SESSION['user'] ?></button>
 				<div class="dropdown-content">
+					<a href="pages.php">Planets</a>
 					<a href="users.php">Users</a>
 					<a href="logout.php">Logout</a>
 				 </div>
@@ -27,11 +36,9 @@
 	
 	<nav>
 		<ul>
-			<a href = "movie.php"><li>I</li></a>
-			<a href = "movie.php"><li>II</li></a>
-			<a href = "movie.php"><li>III</li></a>
-			<a href = "movie.php"><li>IV</li></a>
-			<a href = "movie.php"><li>V</li></a>
-			<a href = "movie.php"><li>VI</li></a>
+			<?php while($row = $header_statement->fetch()): ?>
+				<a href = "movie.php?episode=<?= $row['episode'] ?>"><li><?= $row['episode'] ?></li></a>
+			<?php endwhile ?>
+			<a href = "create_movie.php"><li>+</li></a>
 		</ul>
 	</nav>
