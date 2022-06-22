@@ -143,6 +143,12 @@
 			
 			$statement->execute();
 			
+			$query = "DELETE FROM movie_planets WHERE planet_id = :planet_id";
+			$statement = $db->prepare($query);
+			$statement->bindValue(':planet_id', $planet_id, PDO::PARAM_INT);
+			
+			$statement->execute();
+			
 			header("Location: index.php");
 			exit;
 		}
