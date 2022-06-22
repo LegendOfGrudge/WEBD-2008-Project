@@ -6,8 +6,14 @@ body{
 #login{
 	margin: 0px auto;
 	width: 100%;
+	padding: 5px 0px;
 	background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
 	text-align: right;
+}
+
+#login form{
+	margin-left: 3px;
+	float: left;
 }
 
 #login a{
@@ -15,7 +21,7 @@ body{
 	text-decoration: none;
 	color: black;
 	border: 2px solid white;
-	border-radius: 0px 0px 10px 10px;
+	border-radius: 10px 10px 10px 10px;
 }
 
  /* Dropdown Button */
@@ -25,7 +31,7 @@ body{
   margin-top: 0px;
   padding: 0px 20px;
   border: 2px solid white;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -48,7 +54,7 @@ body{
 .dropdown-content a {
   color: black;
   text-decoration: none;
-  font-size: 0.75vw;
+  font-size: 1vw;
   display: block;
 }
 
@@ -120,6 +126,19 @@ section{
 	text-align: center;
 }
 
+.planet_list{
+	list-style: none;
+}
+
+.planet_list li{
+	display: inline-block;
+}
+
+.planet_list button{
+	height: 50px;
+	width: 100px;
+}
+
 .error{
 	color: red;
 }
@@ -183,12 +202,37 @@ table{
 	border: 3px solid black;
 }
 
+table a{
+	color: white;
+	text-decoration: none;
+}
+
+table .page_name{
+	background-color: black;
+}
+
 td{
 	border: 1px solid black;
 }
 
 button{
 	margin-top: 5px;
+}
+
+.search_results{
+	margin: 0px auto;
+	width: 50%;
+	text-align: left;
+	border: 1px solid white;
+}
+
+.search_results h2{
+	margin-left: 5px;
+	text-decoration: underline;
+}
+
+.search_results p{
+	margin-left: 10px;
 }
 
 footer{
