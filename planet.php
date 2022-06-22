@@ -12,6 +12,14 @@
 		$statement->bindValue(':name', $name);
 		
 		$statement->execute();
+		
+		$comment_query = "SELECT * FROM comments WHERE planet_name = :planet_name ORDER BY date DESC";
+		
+		$comment_statement = $db->prepare($comment_query);
+		
+		$comment_statement->bindValue(':planet_name', $name);
+		
+		$comment_statement->execute();
 	}
 ?>
 <!DOCTYPE html>
@@ -69,6 +77,24 @@
 						<?php endif ?>
 					</tr>
 				</table>
+				<?php if(!empty($row['api_url'])): ?>
+					<h3>Known Residents:</h3>
+					<?php
+						$planet_json = file_get_contents($row['api_url']);
+						$planet_data = json_decode($planet_json, true);
+						
+						$residents = $planet_data['residents'];
+					?>
+					<ul>
+					<?php for($i = 0; $i < count($residents); $i++): ?>
+						<?php
+							$resident_json = file_get_contents($residents[$i]);
+							$resident = json_decode($resident_json, true);
+						?>
+						<li><?= $resident['name'] ?></li>
+					<?php endfor ?>
+					</ul>
+				<?php endif ?>
 				<br />
 				<?php if(isset($_SESSION['user'])): ?>
 				<form method="post" action="update_planet.php">
@@ -79,6 +105,33 @@
 				</form>
 				<?php endif ?>
 			<?php endwhile ?>
+			<h1>Comments:</h1>
+			<?php if($comment_statement->rowCount() == 0): ?>
+				<h1>There are no comments.</h1>
+			<?php else: ?>
+				<?php while($comment = $comment_statement->fetch()): ?>
+					<div class="comment">
+						<h2><?= $comment['user'] ?></h2>
+						<?php $date = date_create($comment['date']); ?>
+						<?php if(isset($_SESSION['privilege']) && $_SESSION['privilege'] == 1): ?>
+							<p><small><?= date_format($date, 'F d, Y, g:i a'); ?> - <a href="delete_comment.php?comment=<?= $comment['comment_id'] ?>">Delete</a></small></p>
+						<?php else: ?>
+							<p><small><?= date_format($date, 'F d, Y, g:i a'); ?></small></p>
+						<?php endif ?>
+						<div class="comment_content"><?= $comment['content'] ?></div>
+					</div>
+				<?php endwhile ?>
+			<?php endif ?>
+			<?php if(isset($_SESSION['user'])): ?>
+				<form method="post" action="create_comment.php">
+					<input type="hidden" name="name" value="<?= $name ?>" />
+					<input type="hidden" name="user" value="<?= $_SESSION['user'] ?>" />
+					
+					<textarea name="content"></textarea>
+					<br />
+					<input type="submit" name="submit" value="Add Comment" />
+				</form>
+			<?php endif ?>
 		<?php endif ?>
 	</section>
 <?php include("footer.php") ?>
