@@ -1,61 +1,70 @@
+/******f************
+    
+    Final Project - WEBD-2008 Web Development 2 
+    Name: Nicholas Fletcher
+    Date: June 22, 2022
+    Description: Styles for all pages in the Galaxy Far, Far Away Database website. 
+
+*******************/
+
 body{
-	margin: 0px auto;
 	background-color: black;
+	margin: 0px auto;
 }
 
 #login{
-	margin: 0px auto;
-	width: 100%;
-	padding: 5px 0px;
 	background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
+	margin: 0px auto;
+	padding: 5px 0px;
 	text-align: right;
+	width: 100%;
 }
 
 #login form{
-	margin-left: 3px;
 	float: left;
+	margin-left: 3px;
 }
 
 #login a{
-	padding: 0px 20px;
-	text-decoration: none;
-	color: black;
 	border: 2px solid white;
 	border-radius: 10px 10px 10px 10px;
+	color: black;
+	padding: 0px 20px;
+	text-decoration: none;
 }
 
  /* Dropdown Button */
 .dropbtn {
-  background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
-  color: black;
-  margin-top: 0px;
-  padding: 0px 20px;
-  border: 2px solid white;
-  border-radius: 10px 10px 10px 10px;
+	background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
+	border: 2px solid white;
+	border-radius: 10px 10px 10px 10px;
+	color: black;
+	margin-top: 0px;
+	padding: 0px 20px;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
-  position: relative;
-  display: inline-block;
+	display: inline-block;
+	position: relative;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  text-align: center;
+	background-color: #f1f1f1;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	display: none;
+	position: absolute;
+	text-align: center;
+	z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  color: black;
-  text-decoration: none;
-  font-size: 1vw;
-  display: block;
+	color: black;
+	display: block;
+	font-size: 1vw;
+	text-decoration: none;
 }
 
 /* Change color of dropdown links on hover */
@@ -68,13 +77,13 @@ body{
 .dropdown:hover .dropbtn {background-color: #3e8e41;} 
 
 #header_image{
-	display: flex;
-	justify-content: center;
 	align-items: center;
-	margin: 0px auto;
-	height: 20vh;
-	width: 100%;
 	border: 1px solid black;
+	display: flex;
+	height: 20vh;
+	justify-content: center;
+	margin: 0px auto;
+	width: 100%;
 }
 
 #header_image a{
@@ -83,27 +92,27 @@ body{
 }
 
 nav{
-	width: 100%;
 	background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
 	margin: 0px auto;
+	width: 100%;
 }
 
 	nav ul{
+		align-items: center;
 		display: flex;
 		flex-wrap: none;
 		justify-content: center;
-		align-items: center;
-		margin: 0px auto;
 		list-style: none;
+		margin: 0px auto;
 		padding: 5px 0px;
 	}
 
 		nav ul a{
+			border-right: 1px solid #0066CC;
 			color: black;
 			font-size: 1.5vw;
-			text-decoration: none;
 			padding: 0px 10px;
-			border-right: 1px solid #0066CC;
+			text-decoration: none;
 		}
 		
 		nav ul a:last-of-type{
@@ -117,13 +126,13 @@ nav{
 		}
 		
 section{
-	width: 95%;
 	background-color: #777;
-	margin: 0px auto;
-	padding-bottom: 20px;
 	border-radius: 0px 0px 15px 15px;
 	border: 1px solid #777;
+	margin: 0px auto;
+	padding-bottom: 20px;
 	text-align: center;
+	width: 95%;
 }
 
 .planet_list{
@@ -139,26 +148,50 @@ section{
 	width: 100px;
 }
 
+.comment{
+	border: 1px solid black;
+	margin: 0px auto;
+	width: 40%;
+}
+
+.comment h2{
+	margin: 5px 0px 0px 5px;
+	text-align: left;
+	text-decoration: underline;
+}
+
+.comment p{
+	margin: 0px 0px 10px 5px;
+	text-align: left;
+}
+
+textarea{
+	height: 20%;
+	margin-top: 5px;
+	width: 30%;
+}
+
 .error{
 	color: red;
 }
 
 #login_form{
+	border: 1px solid black;
 	margin: 20px auto;
 	margin-bottom: 0px;
+	padding: 10px 0px;
 	text-align: center;
 	width: 30%;
-	border: 1px solid black;
-	padding: 10px 0px;
 }
 
 #login_form label{
+	clear: left;
     display: inline-block;
     float: left;
-    clear: left;
-    width: 180px;
     text-align: right;
+    width: 180px;
 }
+
 #login_form input{
 	display: inline-block;
 	float: left;
@@ -178,11 +211,11 @@ section{
 }
 
 #update_form label{
+	clear: left;
 	display: inline-block;
     float: left;
-    clear: left;
-    width: 45%;
     text-align: right;
+    width: 45%;
 }
 
 #update_form input{
@@ -198,8 +231,8 @@ section{
 }
 
 table{
-	margin: 0px auto;
 	border: 3px solid black;
+	margin: 0px auto;
 }
 
 table a{
@@ -220,10 +253,10 @@ button{
 }
 
 .search_results{
+	border: 1px solid black;
 	margin: 0px auto;
-	width: 50%;
 	text-align: left;
-	border: 1px solid white;
+	width: 50%;
 }
 
 .search_results h2{
@@ -236,16 +269,16 @@ button{
 }
 
 footer{
-	position: fixed;
-	bottom: 0px;
-	width: 100%;
 	background: linear-gradient(0deg, rgba(241,241,241,1) 0%, rgba(223,255,32,1) 50%);
 	border: 1px solid black;
 	border-radius: 10px 10px 0px 0px;
+	bottom: 0px;
+	position: fixed;
 	text-align: center;
+	width: 100%;
 }
 
 footer p{
-	margin: 1px;
 	font-size: 0.75vw;
+	margin: 1px;
 }
