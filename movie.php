@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: =Displays the movie category that was clicked and lists out the planets associated as buttons to click to go to the planet pages.  
+	// ----------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(isset($_GET['episode']))
@@ -78,7 +84,7 @@
 			<form method="post" action="movie.php?episode=<?= $_GET['episode'] ?>">
 				<select name="planet">
 					<?php while($select_row = $select_statement->fetch()): ?>
-						<option value="<?php $select_row['planet_id'] . "-" . $select_row['name']; ?>"><?= $select_row['name'] ?></option>
+						<option value="<?php echo $select_row['planet_id'] . "-" . $select_row['name']; ?>"><?= $select_row['name'] ?></option>
 					<?php endwhile ?>
 				</select>
 				<input type="submit" name="add" value="Add Planet" />

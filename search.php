@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Searches through all planets or through all planets in a category by name or portion of a name. 
+	// ------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if($_POST && isset($_POST['search_term']) && isset($_POST['category']))

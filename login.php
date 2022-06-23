@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Allows a user to login based on the mySQL database and verifies the password hash as well as links to create account. 
+	// ----------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 
 	if($_POST)
@@ -9,9 +15,12 @@
 	
 		$statement->execute();
 		
+		$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		$password = filter_input(INPUT_POST, 'pass', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+		
 		while($row = $statement->fetch())
 		{
-			if($_POST['username'] == $row['username'] && password_verify($_POST['pass'], $row['password']))
+			if($username == $row['username'] && password_verify($password, $row['password']))
 			{
 				$_SESSION['user'] = $row['username'];
 				$_SESSION['privilege'] = $row['privilege'];

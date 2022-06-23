@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Creates a planet with all non-link attributes able to be filled and can upload and link an image to the uploads folder and to the planet row in the mySQL database.
+	// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['user']))

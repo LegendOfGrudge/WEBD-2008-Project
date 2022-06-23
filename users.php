@@ -1,7 +1,13 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Displays a list of users for an admin account to assign admin privilege or to delete the user altogether.
+	// ----------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
-	if($_SESSION['privilege'] != 1)
+	if(!isset($_SESSION['privilege']) || $_SESSION['privilege'] != 1)
 	{
 		header("Location: index.php");
 		exit;

@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Allows a user to see a full list of planets with three different ways to sort them with the ability to update or delete the planets from this page.
+	// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['user']))
@@ -59,7 +65,7 @@
 					<form method="post" action="update_planet.php">
 						<tr>
 							<td><input type="hidden" name="planet_id" value="<?= $row['planet_id'] ?>" /></td>
-							<td><a href="planet.php?name=<?= $row['name'] ?>"><?= $row['name'] ?></a></td>
+							<td class="page_name"><a href="planet.php?name=<?= $row['name'] ?>"><?= $row['name'] ?></a></td>
 							<td><?= $row['climate'] ?></td>
 							<td><?= $row['population'] ?></td>
 							<td><input type="submit" name="update" value="Update" /></td>

@@ -1,5 +1,17 @@
-<?php 
+<?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Updates a users privilege status so they can gain access to admin abilities. Only an admin can assign admin access to others. 
+	// ------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
+	
+	if(!isset($_SESSION['privilege']) || $_SESSION['privilege'] != 1)
+	{
+		header("Location: index.php");
+		exit;
+	}
 	
 	if($_POST && isset($_POST['user_id']))
 	{

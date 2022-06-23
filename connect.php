@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Connects the website to the mySQL database.
+	// --------------------------------------------------------
+
 	session_start();
 
 	define('DB_DSN','mysql:host=localhost;dbname=serverside;charset=utf8');

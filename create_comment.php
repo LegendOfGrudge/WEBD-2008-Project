@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Creates a comment associated to a user and a planet page into the mySQL database then redirects back to the planet page.
+	// -------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['user']))

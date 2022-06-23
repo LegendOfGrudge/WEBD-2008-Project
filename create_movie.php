@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Creates a movie category for planets to be linked to and inserts it into the mySQL database.
+	// ---------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['user']))

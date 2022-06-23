@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Displays a planet that was clicked on or retrieved using GET. Shows an image if it is associated, and any comments that are linked.
+	// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(isset($_GET['name']))

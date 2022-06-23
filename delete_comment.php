@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Deletes a comment on a page if the admin is logged in, then redirects back to the planet page to see the comment deleted.
+	// --------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['privilege']) || $_SESSION['privilege'] != 1)

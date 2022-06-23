@@ -1,11 +1,11 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Creates a user account without admin privileges and inserts it into the user database then redirects for the user to login. 
+	// ----------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
-	
-	if(!isset($_SESSION['user']))
-	{
-		header("Location: index.php");
-		exit;
-	}
 	
 	if($_POST && !empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['confirm']))
 	{

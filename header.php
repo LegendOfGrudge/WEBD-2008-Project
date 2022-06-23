@@ -1,4 +1,10 @@
 <?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: A separate file for the HTML and PHP for the header that will display on every page in the site. 
+	// -------------------------------------------------------------------------------------------------------------
+
 	$search_query = "SELECT * FROM movies";
 	
 	$search_statement = $db->prepare($search_query);

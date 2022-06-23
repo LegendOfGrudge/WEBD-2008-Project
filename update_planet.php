@@ -1,4 +1,10 @@
-<?php 
+<?php
+	// Final Project - WEBD-2008 Web Development 2
+	// Name: Nicholas Fletcher
+	// Date: June 22, 2022
+	// Description: Allows a user to update non-linked attributes except the name of the planet or to upload and link an image to the planet in the mySQL database.
+	// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 	require('connect.php');
 	
 	if(!isset($_SESSION['user']))
